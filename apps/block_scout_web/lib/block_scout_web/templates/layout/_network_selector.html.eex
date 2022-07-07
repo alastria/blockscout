@@ -18,34 +18,12 @@
                 <input class="network-selector-search-input" type="text" placeholder='<%= gettext("Search network") %>' />
             </form>
             <div class="network-selector-tabs-container">
-                <div class="network-selector-tab js-network-selector-tab active" network-selector-tab-filter="all"><%= gettext("All") %></div>
-                <div class="network-selector-tab js-network-selector-tab" network-selector-tab-filter="mainnet"><%= gettext("Mainnet") %></div>
-                <div class="network-selector-tab js-network-selector-tab" network-selector-tab-filter="testnet"><%= gettext("Testnet") %></div>
-                <div class="network-selector-tab js-network-selector-tab" network-selector-tab-filter="favorites"><%= gettext("Favorites") %></div>
+                <div class="network-selector-tab js-network-selector-tab active" network-selector-tab-filter="alastria">Alastria networks</div>
             </div>
             <div class="network-selector-networks-container">
-                <% main_nets = dropdown_main_nets() %>
-                <% test_nets = dropdown_test_nets() %>
-                <div class="network-selector-tab-content js-network-selector-tab-content active" network-selector-tab="all">
-                    <%= for %{url: url, title: title} <- main_nets do %>
-                        <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: title, url: url, tab_type: "Mainnet" %>
-                    <% end %>
-                    <%= for %{url: url, title: title} <- test_nets do %>
-                        <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: title, url: url, tab_type: "Testnet" %>
-                    <% end %>
-                </div>
-                <div class="network-selector-tab-content js-network-selector-tab-content" network-selector-tab="mainnet">
-                    <%= for %{url: url, title: title} <- main_nets do %>
-                        <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: title, url: url, tab_type: "Mainnet" %>
-                    <% end %>
-                </div>
-                <div class="network-selector-tab-content js-network-selector-tab-content" network-selector-tab="testnet">
-                    <%= for %{url: url, title: title} <- test_nets do %>
-                        <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: title, url: url, tab_type: "Testnet" %>
-                    <% end %>
-                </div>
-                <div class="network-selector-tab-content js-network-selector-tab-content js-favorites-tab" network-selector-tab="favorites">
-                    <div class="network-selector-tab-content-empty">No content.</div>
+                <div class="network-selector-tab-content js-network-selector-tab-content active" network-selector-tab="alastria">
+                    <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: "Red T", url: "http://redt-explorer.alastria.io", tab_type: "Alastria networks" %>
+                    <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: "Red B", url: "http://redb-explorer.alastria.io", tab_type: "Alastria networks" %>
                 </div>
             </div>
         </div>

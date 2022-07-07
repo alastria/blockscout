@@ -43,6 +43,9 @@ services:
       - ETHEREUM_JSONRPC_HTTP_URL=http://NODE_IP:8545
       - ETHEREUM_JSONRPC_TRACE_URL=http://NODE_IP:8545
       - ETHEREUM_JSONRPC_WS_URL=ws://NODE_IP:8546
+      - APPS_MENU=false
+      - LOGO=/images/alastria_logo.png
+      - LOGO_FOOTER=/images/alastria_logo.png
     ports:
       - 80:4000
 
