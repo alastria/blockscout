@@ -16,6 +16,14 @@ This command uses by-default `docker-compose.yml`, which build the explorer into
 - one for the database. Postgres 13.x, which will be available at port 7432 on localhost
 - and the BlockScout explorer at http://localhost:4000
 
+## Configs for Alastria networks
+This branch contains built-in configs for Alastria networks, in which case the image needs to be build:
+- Alastria Red B: `docker-compose -f docker-compose-redb.yml up --build -d`
+
+Don't forget to put the NODE_IP in the compose file. Two Docker containers will be run:
+- one for the database. Postgres 13.6, which will be available at port 7432 on localhost
+- and the BlockScout explorer at http://localhost
+
 ## Configs for different Ethereum clients
 Also, the repo contains built-in configs for different clients without need to build the image
 - Ganache: `docker-compose -f docker-compose-no-build-ganache.yml up -d`
