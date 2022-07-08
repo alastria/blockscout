@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  redb_db:
     image: postgres:13.6
     restart: always
     container_name: 'postgres'
@@ -10,13 +10,13 @@ services:
         POSTGRES_USER: 'postgres'
         POSTGRES_HOST_AUTH_METHOD: 'trust'
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - ~/redb-blockexplorer_db-data:/var/lib/postgresql/data
     ports:
       - 7432:5432
 
-  blockscout:
+  redb_blockscout:
     depends_on:
-      - db
+      - redb_db
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
     build:
       context: ..
@@ -26,7 +26,7 @@ services:
     restart: always
     container_name: 'blockscout'
     links:
-      - db:database
+      - redb_db:database
     command: 'mix do ecto.create, ecto.migrate, phx.server'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
@@ -48,6 +48,3 @@ services:
       - LOGO_FOOTER=/images/alastria_logo.png
     ports:
       - 80:4000
-
-volumes:
-  db-data:
