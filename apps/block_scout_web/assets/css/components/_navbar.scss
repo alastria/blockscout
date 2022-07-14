@@ -23,7 +23,7 @@ $navbar-logo-width: auto !default;
   }
 
   .navbar-nav {
-    
+
     .nav-link {
       outline: none;
       align-items: center;
@@ -296,4 +296,8 @@ $navbar-logo-width: auto !default;
 
 .visually-hidden {
   display: block;
+}
+
+#navbar-network-title {
+  padding: .5rem 1rem;
 }

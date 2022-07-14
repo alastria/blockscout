@@ -137,16 +137,11 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle js-show-network-selector" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="active-icon" id="navbar-network-title">
             <span class="nav-link-icon">
               <%= render BlockScoutWeb.IconsView, "_active_icon.html" %>
             </span>
             <%= subnetwork_title() %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item header division">Alastria networks</a>
-            <a class="dropdown-item" href="http://redt-explorer.alastria.io">Red T</a>
-            <a class="dropdown-item" href="http://redb-explorer.alastria.io">Red B</a>
           </div>
         </li>
       </ul>
