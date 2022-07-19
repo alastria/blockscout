@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  redt_db:
+    image: postgres:13.6
+    restart: always
+    container_name: 'postgres'
+    environment:
+        POSTGRES_PASSWORD: ''
+        POSTGRES_USER: 'postgres'
+        POSTGRES_HOST_AUTH_METHOD: 'trust'
+    volumes:
+      - ~/redt-blockexplorer_db-data:/var/lib/postgresql/data
+    ports:
+      - 7432:5432
+
+  redt_blockscout:
+    depends_on:
+      - redt_db
+    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      args:
+        COIN: ""
+    restart: always
+    container_name: 'blockscout'
+    links:
+      - redt_db:database
+    command: 'mix do ecto.create, ecto.migrate, phx.server'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    env_file:
+      -  ./envs/common-blockscout.env
+    environment:
+      - PORT=4000
+      - DATABASE_URL=postgresql://postgres:@host.docker.internal:7432/blockscout?ssl=false
+      - NETWORK=Alastria
+      - SUBNETWORK=Red T
+      - COIN=ETH
+      - ETHEREUM_JSONRPC_VARIANT=geth
+      - ETHEREUM_JSONRPC_TRANSPORT=http
+      - ETHEREUM_JSONRPC_HTTP_URL=http://NODE_IP:22000
+      - ETHEREUM_JSONRPC_TRACE_URL=http://NODE_IP:22000
+      - ETHEREUM_JSONRPC_WS_URL=ws://NODE_IP:22001
+      - APPS_MENU=false
+      - LOGO=/images/alastria_logo.png
+      - LOGO_FOOTER=/images/alastria_logo.png
+    ports:
+      - 80:4000
