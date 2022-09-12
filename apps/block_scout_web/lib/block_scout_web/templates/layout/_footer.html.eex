@@ -24,6 +24,15 @@
           <a href="https://github.com/alastria/blockscout" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Github") %>'>
             <div class="footer-social-icon-container fontawesome-icon github"></div>
           </a>
+          <a href="https://twitter.com/alastria_" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Twitter") %>'>
+            <div class="footer-social-icon-container fontawesome-icon twitter"></div>
+          </a>
+          <a href="https://www.linkedin.com/company/alastria/" rel="noreferrer" target="_blank" class="footer-social-icon" title='Likedin'>
+            <div class="footer-social-icon-container fontawesome-icon linkedin"></div>
+          </a>
+          <a href="https://www.youtube.com/channel/UCpsEw5STUtWZCpTa47g_rzw" rel="noreferrer" target="_blank" class="footer-social-icon" title='Youtube'>
+            <div class="footer-social-icon-container fontawesome-icon youtube"></div>
+          </a>
         </div>
       </div>
       <!--

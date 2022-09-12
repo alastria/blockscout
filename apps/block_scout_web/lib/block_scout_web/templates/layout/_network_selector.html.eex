@@ -18,13 +18,8 @@
                 <input class="network-selector-search-input" type="text" placeholder='<%= gettext("Search network") %>' />
             </form>
             <div class="network-selector-tabs-container">
-                <div class="network-selector-tab js-network-selector-tab active" network-selector-tab-filter="alastria">Alastria networks</div>
             </div>
             <div class="network-selector-networks-container">
-                <div class="network-selector-tab-content js-network-selector-tab-content active" network-selector-tab="alastria">
-                    <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: "Red T", url: "http://redt-explorer.alastria.io", tab_type: "Alastria networks" %>
-                    <%= render BlockScoutWeb.LayoutView, "_network_selector_item.html", title: "Red B", url: "http://redb-explorer.alastria.io", tab_type: "Alastria networks" %>
-                </div>
             </div>
         </div>
     </div>
