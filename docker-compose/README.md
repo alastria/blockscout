@@ -8,6 +8,17 @@ Runs Blockscout locally in Docker containers with [docker-compose](https://githu
 - Docker-compose 2.x.x+
 - Running Ethereum JSON RPC client
 
+## Setting ENV variables
+
+Set the following ENV variables in file `envs/common-blockscout.env`:
+
+- **ETHEREUM_JSONRPC_VARIANT**: `geth` or `besu`
+- **ETHEREUM_JSONRPC_HTTP_URL**: blockchain node RPC API url
+- **ETHEREUM_JSONRPC_TRACE_URL**: blockchain node RPC API url
+- **SUBNETWORK**: network name, `Red T` or `Red B`
+- **ETHEREUM_JSONRPC_WS_URL**: blockchain node RPC websocket url
+- **CHAIN_ID**: blockchain network chain ID (`83584648538` for **Red T** and `2020` for **Red B**)
+
 ## Building Docker containers from source
 
 ```bash
